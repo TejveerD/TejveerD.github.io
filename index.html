@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tejveer Dhakne</title>
-<meta name="description" content="Tejveer Dhakne — civil engineering student at COEP Pune, working in project management consultancy. Builder of drones, small tools, and slow coffee.">
+<meta name="description" content="Tejveer Dhakne — civil engineering student at COEP Pune. Builder of drones, small tools, and slow coffee.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
@@ -30,10 +30,10 @@
       <p class="eyebrow">Pune, India · Civil Engineering</p>
       <h1>Tejveer<br><em>Dhakne</em></h1>
       <p class="hero-lede">
-        I spend my weekdays between fluid mechanics lectures and a
-        construction site in Mumbai, and my evenings taking things
-        apart — drones, schedules, pour-over recipes — to see what
-        holds them together.
+        I split my time between fluid mechanics lectures and a
+        year spent reading construction schedules in Mumbai, and my
+        evenings taking things apart — drones, code, pour-over recipes —
+        to see what holds them together.
       </p>
       <p class="hero-continue">
         <a href="#about" class="quiet-link">Keep reading&nbsp;&darr;</a>
@@ -51,16 +51,16 @@
     <div class="prose">
       <p>
         I'm a second-year civil engineering student at COEP Technological
-        University in Pune. Alongside coursework, I work with
-        <strong>Shashank Mehendale &amp; Associates</strong>, a project
-        management consultancy, where I've spent the past year on a
-        residential development in Mumbai — reading daily progress reports,
-        tracing schedule variances, and learning why buildings take as long
-        as they do. It turns out the answer is rarely concrete and steel.
-        It's usually coordination, incentives, and paperwork.
+        University in Pune. Alongside coursework, I spent a stretch working
+        with <strong>Shashank Mehendale &amp; Associates</strong>, a project
+        management consultancy, on a residential development in Mumbai —
+        reading daily progress reports, tracing schedule variances, and
+        learning why buildings take as long as they do. It turns out the
+        answer is rarely concrete and steel. It's usually coordination,
+        incentives, and paperwork.
       </p>
       <p>
-        That discovery has quietly redirected my curiosity. My questions
+        That experience has quietly redirected my curiosity. My questions
         have been drifting from <em>how things get built</em> to
         <em>how they get decided and financed</em> — and I'm still working
         out what to do about that. In the meantime I'm studying software
@@ -93,10 +93,10 @@
         keep wishing existed on site are ones somebody has to build.</p>
       </div>
       <div class="now-item">
-        <h3>On site</h3>
-        <p>Continuing project-management work with SMA — schedule
-        analysis, contractor coordination, and the slow craft of making a
-        construction programme tell the truth.</p>
+        <h3>Looking ahead</h3>
+        <p>Weighing what comes after a year spent closer to site
+        coordination than to a classroom — case competitions, and where
+        engineering, technology, and finance actually meet.</p>
       </div>
       <div class="now-item">
         <h3>Class representative</h3>
@@ -113,13 +113,24 @@
       <li class="project">
         <div class="project-head">
           <h3>Contractor accountability &amp; schedule analysis</h3>
-          <span class="project-tag">PMC · SMA</span>
+          <span class="project-tag">PMC · SMA · 2025–26</span>
         </div>
         <p>On a residential development in Mumbai: variance analysis
         against baseline CPM schedules, daily-progress-report forensics,
         and a meeting-preparation system that separates contractor
         underperformance from client-side delays — because the two demand
         very different conversations.</p>
+      </li>
+      <li class="project">
+        <div class="project-head">
+          <h3>Modular precast proposal framework</h3>
+          <span class="project-tag">PMC · SMA · 2025–26</span>
+        </div>
+        <p>A reusable framework for introducing monolithic modular precast
+        construction to clients — mapping the technology against
+        conventional methods across cost, speed, quality, and labour, and
+        structuring the pitch around what clients actually weigh when they
+        choose how to build.</p>
       </li>
       <li class="project">
         <div class="project-head">
@@ -135,8 +146,9 @@
           <h3>Small tools</h3>
           <span class="project-tag">Software</span>
         </div>
-        <p>Single-file app built for exactly one user: a food scanner
-        that estimates nutrition from a photo using a vision model, written the
+        <p>Single-file apps built for exactly one user: a food scanner
+        that estimates nutrition from a photo using a vision model, and a
+        daily planner tuned to my own study schedule. Both written the
         slow way — requirements first, code second.</p>
       </li>
     </ul>
@@ -168,5 +180,23 @@
   </footer>
 
 </main>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  var targets = document.querySelectorAll('.section, .footer');
+  targets.forEach(function (el) { el.classList.add('will-reveal'); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
 </body>
 </html>

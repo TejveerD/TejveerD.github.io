@@ -348,4 +348,48 @@ strong { font-weight: 600; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero-text, .hero-window { animation: none; }
+  .hero-window img { animation: none; }
+  .project, .project-tag, .project h3 { transition: none; }
+}
+
+/* ---------- motion (three deliberate touches) ---------- */
+
+/* 1 — scroll reveal: sections lift into place.
+   .will-reveal is added by JS only, so no-JS users see everything. */
+.will-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.will-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 2 — project rows: tactile nudge on hover */
+.project {
+  transition: transform 0.25s ease;
+}
+
+.project h3 { transition: color 0.25s ease; }
+.project-tag { transition: color 0.25s ease; }
+
+@media (hover: hover) {
+  .project:hover { transform: translateX(6px); }
+  .project:hover h3 { color: var(--sienna); }
+  .project:hover .project-tag { color: var(--sienna); }
+}
+
+/* 3 — the window breathes: a barely-there zoom over 40s */
+.hero-window { overflow: hidden; }
+
+.hero-window img {
+  animation: breathe 40s ease-in-out infinite alternate;
+  transform-origin: center 60%;
+}
+
+@keyframes breathe {
+  from { transform: scale(1); }
+  to   { transform: scale(1.045); }
 }
