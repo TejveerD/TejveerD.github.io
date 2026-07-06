@@ -1,0 +1,351 @@
+/* ==========================================================
+   Tejveer Dhakne — personal site
+   Palette derived from the hero photo: dusk through a window.
+   ========================================================== */
+
+:root {
+  --paper:      #F6EEE2;   /* warm haze, from the lit pane        */
+  --paper-deep: #EFE3D2;   /* slightly deeper paper, for panels   */
+  --ink:        #261C15;   /* the window frame                    */
+  --ink-soft:   #5E4F42;   /* secondary text, warm gray-brown     */
+  --sienna:     #A3470D;   /* the burnt band of the sunset        */
+  --gold:       #D99A45;   /* the sun through the leaves          */
+  --rule:       #D8C8B2;   /* hairline, used sparingly            */
+
+  --display: "Newsreader", Georgia, serif;
+  --utility: "Archivo", system-ui, sans-serif;
+
+  --measure: 36rem;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.4rem var(--gutter);
+}
+
+.masthead-name {
+  font-family: var(--utility);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.masthead-nav {
+  display: flex;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.masthead-nav a {
+  font-family: var(--utility);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.masthead-nav a:hover,
+.masthead-nav a:focus-visible { color: var(--sienna); }
+
+/* ---------- shared ---------- */
+
+.eyebrow {
+  font-family: var(--utility);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sienna);
+  margin-bottom: 1.6rem;
+}
+
+a { color: var(--sienna); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--sienna); }
+a:focus-visible { outline: 2px solid var(--sienna); outline-offset: 3px; }
+
+em { font-style: italic; }
+strong { font-weight: 600; }
+
+/* ---------- hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  padding: clamp(2rem, 7vh, 5rem) var(--gutter) clamp(3rem, 9vh, 6rem);
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.hero-text { animation: rise 0.9s ease-out both; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.8rem;
+}
+
+.hero h1 em {
+  font-weight: 300;
+  color: var(--sienna);
+}
+
+.hero-lede {
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 30ch;
+  max-width: var(--measure);
+  color: var(--ink);
+}
+
+.hero-continue { margin-top: 2.2rem; }
+
+.quiet-link {
+  font-family: var(--utility);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 3px;
+}
+
+.quiet-link:hover { color: var(--sienna); border-color: var(--sienna); }
+
+/* the window — signature element */
+
+.hero-window {
+  justify-self: center;
+  width: min(100%, 22rem);
+  border: 1px solid var(--ink);
+  padding: 0.55rem;
+  background: var(--paper-deep);
+  box-shadow: 10px 10px 0 0 var(--paper-deep);
+  animation: rise 0.9s 0.15s ease-out both;
+}
+
+.hero-window img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--ink);
+}
+
+.hero-window figcaption {
+  font-family: var(--utility);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  padding-top: 0.6rem;
+}
+
+/* ---------- sections ---------- */
+
+.section {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 8vh, 5.5rem) var(--gutter);
+}
+
+.section + .section { border-top: 1px solid var(--rule); }
+
+.prose p {
+  max-width: var(--measure);
+  margin-bottom: 1.4rem;
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+.prose p:last-child { margin-bottom: 0; }
+
+/* ---------- now ---------- */
+
+.now-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.4rem 3rem;
+}
+
+.now-item h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.now-item p {
+  font-size: 0.98rem;
+  font-weight: 300;
+  color: var(--ink-soft);
+}
+
+/* ---------- projects ---------- */
+
+.project-list { list-style: none; }
+
+.project { padding: 1.8rem 0; }
+
+.project + .project { border-top: 1px solid var(--rule); }
+
+.project-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+
+.project h3 {
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.project-tag {
+  font-family: var(--utility);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.project p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink-soft);
+  max-width: var(--measure);
+}
+
+/* ---------- writing ---------- */
+
+.writing-empty {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: 2rem;
+  max-width: var(--measure);
+}
+
+.writing-note {
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+  color: var(--sienna);
+}
+
+.writing-empty p:last-child {
+  font-size: 0.98rem;
+  font-weight: 300;
+  color: var(--ink-soft);
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(3rem, 9vh, 5.5rem) var(--gutter) 2.5rem;
+  margin-top: clamp(2rem, 6vh, 4rem);
+}
+
+.footer > * {
+  max-width: 46rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer .eyebrow { color: var(--gold); }
+
+.footer-line {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.footer-email {
+  color: var(--paper);
+  font-style: italic;
+  font-size: 1.5rem;
+  text-decoration-color: var(--gold);
+}
+
+.footer-email:hover { color: var(--gold); }
+
+.footer-links {
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.footer-links a {
+  font-family: var(--utility);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 3px;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.colophon {
+  font-family: var(--utility);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(246, 238, 226, 0.45);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 1.5rem;
+  }
+  .hero-window { width: min(100%, 18rem); justify-self: start; }
+  .now-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+}
+
+/* ---------- accessibility ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-text, .hero-window { animation: none; }
+}
